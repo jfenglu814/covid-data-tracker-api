@@ -12,7 +12,6 @@ app.use(cors());
 //route
 app.get("/api/:id", async (req, res) => {
   try {
-    //convert state abbreviation to full name
     if (req.params.id == "US") {
       const stateData = await pool.query(
         "select sum(people_vaccinated) as people_vaccinated from vaccinations where date=(select MAX(date) from vaccinations)",
