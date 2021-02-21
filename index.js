@@ -1,7 +1,12 @@
 const express = require("express");
 const pool = require("./src/microservices/Database/db");
+//const dataPool = require("./src/microservices/Database");
 //package to convert state abbreviations to full name
 const states = require("us-state-converter");
+const { monthlySpending } = require("./src/microservices/Analytics");
+const {
+  monthlySpendingFifthThird,
+} = require("./src/microservices/Analytics/FifthThird");
 
 const app = express();
 const cors = require("cors");
@@ -31,6 +36,23 @@ app.get("/api/:id", async (req, res) => {
     //console.log(stateData);
   } catch (error) {
     console.error(error.message);
+  }
+});
+
+app.get("/api/commodity/:id", async (req, res) => {
+  try {
+    res.json(await monthlySpending(req.params.id));
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/api/spending/:id", async (req, res) => {
+  try {
+    console.log("spending");
+    res.json(await monthlySpendingFifthThird(req.params.id));
+  } catch (error) {
+    console.log(error);
   }
 });
 
