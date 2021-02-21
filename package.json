@@ -1,0 +1,21 @@
+{
+  "name": "vaccinations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^1.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "knex": "^0.21.17",
+    "pg": "^8.5.1",
+    "us-state-converter": "^1.0.5"
+  }
+}
